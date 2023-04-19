@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.getRoutes),
     path('stocks/', views.getStocks),
     path('stocks/<str:pk>', views.getStock),
+    #path('stocks/rerunner', views.rerunner),
 ]

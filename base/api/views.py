@@ -1,8 +1,9 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from base.models import Stock,ticker
+from base.models import Stock
 from .serializers import StockSerializer
 from .. import code
+
 from django.shortcuts import get_object_or_404
 
 
@@ -40,7 +41,7 @@ def getStock(request, pk):
     # Here the rooms are objects and they cannot be used directly so we use our serializers
 
     stock.current_price,stock.predicted_price,stock.RMSE = code.model_generator(str(stock.name.ticker), stock.name.shifts, str(stock.name.years))
-    print(stock.current_price,stock.predicted_price,stock.RMSE)
+    #print(stock.current_price,stock.predicted_price,stock.RMSE)
     # many means we are serializing multiple objects
     # stock.current_price = true
     # stock.predicted_price = pred
