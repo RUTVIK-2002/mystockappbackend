@@ -141,4 +141,4 @@ CORS_ALLOWED_ORIGINS = [
     "https://djangostockapp.azurewebsites.net",
     # Add other trusted origins as necessary
 ]
-
+CSRF_TRUSTED_ORIGINS = ["https://djangostockapp.azurewebsites.net",]
