@@ -74,7 +74,7 @@ def setter(tick):
             MSE_LR = sqrt(mean_squared_error(y_true=inverse_true, y_pred=inverse_pred))
 
             #print(f'Root Mean Squared Error: {MSE_LR}')
-            scores.append({'shifts': shifts[j], 'years':years[k],'accuracy': score, 'rmse': MSE_LR})
+            scores.append({'ticker':tick, 'shifts': shifts[j], 'years':years[k],'accuracy': score, 'rmse': MSE_LR})
             #print('------------------------------------')
 
             names = names.clear()
@@ -87,6 +87,7 @@ def setter(tick):
     #print(scores_df)
     # select the scenario with the highest accuracy score and lowest RMSE score
     best_scenario = scores_df.iloc[0]
+    #print(best_scenario)
     #print(best_scenario['shifts'], best_scenario['years'])
     return best_scenario['shifts'], best_scenario['years']
     

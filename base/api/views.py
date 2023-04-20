@@ -3,9 +3,11 @@ from rest_framework.response import Response
 from base.models import Stock
 from .serializers import StockSerializer
 from .. import code
+import pandas as pd
 
 from django.shortcuts import get_object_or_404
 
+df = pd.read_csv('shifts_years_finder.csv')
 
 @api_view(['GET'])  # we can add PUT and POST response here
 def getRoutes(request):
@@ -39,8 +41,13 @@ def getStocks(request):
 def getStock(request, pk):
     stock = Stock.objects.get(id=pk)
     # Here the rooms are objects and they cannot be used directly so we use our serializers
-
-    stock.current_price,stock.predicted_price,stock.RMSE = code.model_generator(str(stock.name.ticker), stock.name.shifts, str(stock.name.years))
+    stock.name.shifts = df.at[df[df['ticker'] == stock.name.ticker].index[0], 'shifts']
+    stock.name.years = df.at[df[df['ticker'] == stock.name.ticker].index[0], 'years']
+    # stock.name.shifts = df['shifts'][stock.name.ticker==df['ticker']]
+    # stock.name.years = df['years'][stock.name.ticker==df['ticker']]
+    #stock.save()
+    #print(stock.name.ticker,stock.name.shifts,stock.name.years)
+    stock.current_price,stock.predicted_price,stock.RMSE = code.model_generator(str(stock.name.ticker), int(stock.name.shifts), str(stock.name.years))
     #print(stock.current_price,stock.predicted_price,stock.RMSE)
     # many means we are serializing multiple objects
     # stock.current_price = true
