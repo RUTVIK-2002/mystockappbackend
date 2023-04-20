@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-x4m_2-f*g&#f@j^szh2w$w+4^==ukb7jn*7%6g+vn^py7-msz%"
+SECRET_KEY = "django-insecure-x4m_2-f*g&#f@j^szh2w$w+4^==ukb7jn*7g+vn^py7-msz%"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -42,6 +42,10 @@ INSTALLED_APPS = [
 
     "rest_framework",
 ]
+
+AUTHENTICATION_BACKENDS = ( 
+    'django.contrib.auth.backends.ModelBackend', 
+)
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -132,5 +136,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = True
 CSRF_COOKIE_SECURE = False
-SESSION_COOKIE_SECURE = False
+#SESSION_COOKIE_SECURE = False
 
