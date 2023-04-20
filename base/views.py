@@ -3,7 +3,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_protect
 # Create your views here.
+
+
+@csrf_protect
 def loginPage(request):
     page = 'login'
     if request.user.is_authenticated:
