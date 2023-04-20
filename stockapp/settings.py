@@ -137,4 +137,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOW_ALL_ORIGINS = True
 CSRF_COOKIE_SECURE = False
 #SESSION_COOKIE_SECURE = False
+CORS_ALLOWED_ORIGINS = [
+    "https://djangostockapp.azurewebsites.net",
+    # Add other trusted origins as necessary
+]
 
