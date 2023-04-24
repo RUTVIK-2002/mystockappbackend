@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<body>
+	<main>
+		
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search Stock...." name = "q" aria-label="Search">
+			  </form>
+			  <form>
+				<br>
+				<a href="{% url 'addStock' %}"><button type="button" class="btn btn-primary btn-rounded">Add Stock</button></a>
+				<br>
+				<br>
+				<br>
+	<ul>
+	{% if info == True %}
+		<p>The Information on searched stock is Unavailable</p>
+	{% else %}
+	{% for stock in stocks %}
+	<div style="display: flex; justify-content: space-between;">
+		<div>
+			<a href="{% url 'updateStock' stock.id %}"><p>{{stock.name.name}}</p></a>
+		</div>
+		<div style = "margin-right:1000px">
+			<a href="{% url 'deleteStock' stock.id %}"><p>Delete</p></a>
+		</div>
+	</div>
+{% endfor %}
+
+
+
+	{% endif %}
+</ul>
+
+	</main>
+
+</body>
+{% endblock %}

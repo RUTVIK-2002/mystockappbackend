@@ -1,0 +1,39 @@
+/* main.css */
+
+body {
+    background-color: black; /* set background color of page */
+    font-family: 'Roboto', sans-serif; /* set font family */
+    color: #333; /* set text color */
+}
+
+main {
+    margin: 20px; /* add margin to main content */
+}
+
+h1 {
+    color: #333; /* set color of main heading */
+    font-size: 36px; /* set font size of main heading */
+}
+
+p {
+    font-size: 18px; /* set font size of paragraph */
+}
+
+ul {
+    list-style-type: none; /* remove bullet points from list */
+    margin: 0; /* remove default margin */
+    padding: 0; /* remove default padding */
+}
+
+ul li {
+    margin-bottom: 10px; /* add margin between list items */
+}
+
+a {
+    color: #333; /* set color of links */
+    text-decoration: none; /* remove underline from links */
+}
+
+a:hover {
+    text-decoration: underline; /* add underline on hover */
+}

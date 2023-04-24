@@ -2,12 +2,7 @@
 <html lang="en" >
 
 <head>
-  <title>Login Page</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Panel Log in</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <title>Update Stock</title>
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <!-- Font Awesome -->
@@ -18,6 +13,7 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+
   
 <style>
 body {
@@ -50,7 +46,8 @@ body {
     letter-spacing: 2px;
     margin-top: 15px;
     font-weight: bold;
-    color: #ECF0F5;
+    color: #0DB8DE;
+    
 }
 
 .login-form {
@@ -71,7 +68,7 @@ input[type=text] {
     color: #ECF0F5;
 }
 
-input[type=password] {
+input[type=number] {
     background-color: #1A2226;
     border: none;
     border-bottom: 2px solid #0DB8DE;
@@ -163,11 +160,9 @@ label {
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>
             <div class="col-lg-6 col-md-8 login-box">
-                <div class="col-lg-12 login-key">
-                    <i class="fa fa-key" aria-hidden="true"></i>
-                </div>
+
                 <div class="col-lg-12 login-title">
-                    ADMIN PANEL
+                    Update Stock
                 </div>
 
                 <div class="col-lg-12 login-form">
@@ -175,22 +170,39 @@ label {
                         <form action="" method="POST">
 							{% csrf_token %}
                             <div class="form-group">
-                                <label class="form-control-label" >USERNAME</label>
-                                <input type="text" name="username" class="form-control">
+                                <label class="form-control-label" >Name</label>
+                                <input type="text" name="name" value="{{ name }}" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label">PASSWORD</label>
-                                <input type="password" name="password" class="form-control" i>
+                                <label class="form-control-label">Ticker</label>
+                                <input type="text" name="ticker" value="{{ ticker }}"class="form-control">
                             </div>
-
+                            <div class="form-group">
+                                <label class="form-control-label">Shifts</label>
+                                <input type="number" name="shifts" value="{{ shifts }}" class="form-control" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">Years</label>
+                                <input type="text" name="years" value="{{ years }}" class="form-control">
+                            </div>
                             <div class="col-lg-12 loginbttm">
                                 <div class="col-lg-6 login-btm login-text">
                                     <!-- Error Message -->
                                 </div>
-                                <div class="col-lg-6 login-btm login-button">
-                                    <button type="submit" class="btn btn-outline-primary" value="Login">LOGIN</button>
-                                </div>
-                            </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                      <div class="col-sm-6 text-center">
+                                        <button type="submit" class="btn btn-outline-primary">Update</button>
+                                      </div>
+                                      <div class="col-sm-6  text-center">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="window.history.back();">Cancel</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                      
+
+
                         </form>
                     </div>
                 </div>

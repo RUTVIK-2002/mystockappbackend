@@ -31,6 +31,7 @@ def col_generator(tick, names, shifts=14, years='5y'):
     # names.append('signal')
     
     df = stock.copy()
+    #print(df)
     df.drop(['Open','High','Low', 'Volume', 'Dividends','Stock Splits'], axis=1, inplace=True)
     df.dropna(inplace=True)
     
@@ -92,5 +93,5 @@ def setter(tick):
     return best_scenario['shifts'], best_scenario['years']
     
 #print(scores_df)
-#tick = ['RELIANCE.NS','TCS.NS']
-#setter(tick[1])
+# tick = ['RELIANCE.NS','TCS.NS']
+# setter(tick[0])

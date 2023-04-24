@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<body>
+	<main>
+	
+		<p>Name: {{stock.name}}</p>
+		<p>ticker: {{stock.name.ticker}}</p>
+		<p>Shifts: {{stock.name.shifts}}</p>
+		<p>Years: {{stock.name.years}}</p>
+		<p>predicted_price: {{stock.predicted_price}}</p>
+		<p>current_price: {{stock.current_price}}</p>
+		<a href="{% url 'updateStock' stock.id %}">Update</a>
+	</main>
+
+</body>
+{% endblock %}

@@ -7,7 +7,6 @@ import pandas as pd
 
 from django.shortcuts import get_object_or_404
 
-df = pd.read_csv('shifts_years_finder.csv')
 
 @api_view(['GET'])  # we can add PUT and POST response here
 def getRoutes(request):
@@ -40,6 +39,7 @@ def getStocks(request):
 @api_view(['GET'])
 def getStock(request, pk):
     stock = Stock.objects.get(id=pk)
+    df = pd.read_csv('shifts_years_finder.csv')
     # Here the rooms are objects and they cannot be used directly so we use our serializers
     stock.name.shifts = df.at[df[df['ticker'] == stock.name.ticker].index[0], 'shifts']
     stock.name.years = df.at[df[df['ticker'] == stock.name.ticker].index[0], 'years']
