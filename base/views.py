@@ -105,7 +105,7 @@ def addStock(request):
 
 @login_required(login_url='login')
 def deleteStock(request,pk):
-    tick = ticker.objects.get(id=pk)
+    tick = Stock.objects.get(id=pk)
 
     if request.method == 'POST':
         tick.delete()
