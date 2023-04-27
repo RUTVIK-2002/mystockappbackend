@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from base.models import Stock
+from base.models import Stock,ticker
 from .serializers import StockSerializer
 from .. import code
 import pandas as pd
@@ -34,6 +34,7 @@ def getStocks(request):
     # many means we are serializing multiple objects
     serializer = StockSerializer(stocks, many=True)
     return Response(serializer.data)  # it gives us data in a serialized format
+
 
 
 @api_view(['GET'])

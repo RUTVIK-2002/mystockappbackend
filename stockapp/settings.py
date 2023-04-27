@@ -149,3 +149,4 @@ CORS_ALLOW_ALL_ORIGINS = True
 #     # Add other trusted origins as necessary
 # ]
 CSRF_TRUSTED_ORIGINS = ["https://djangostockapp.azurewebsites.net",]
+# this should be used when delpoying app to web such that there will be no csrf issue when deployed
