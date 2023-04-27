@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "base.apps.BaseConfig",
 
     "rest_framework",
+    "corsheaders"
 ]
 
 AUTHENTICATION_BACKENDS = ( 
@@ -140,11 +141,11 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-#CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 #CSRF_COOKIE_SECURE = False
 #SESSION_COOKIE_SECURE = False
-CORS_ALLOWED_ORIGINS = [
-    "https://djangostockapp.azurewebsites.net",
-    # Add other trusted origins as necessary
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "https://djangostockapp.azurewebsites.net/api/stocks",
+#     # Add other trusted origins as necessary
+# ]
 CSRF_TRUSTED_ORIGINS = ["https://djangostockapp.azurewebsites.net",]
